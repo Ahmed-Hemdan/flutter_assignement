@@ -9,44 +9,46 @@ class MainMenue extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            InkWell(
-              onTap: () {
-                Navigator.push(
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const NewDocument(),
+                    ),
+                  );
+                },
+                child: mainMenueWidget(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const NewDocument(),
-                  ),
-                );
-              },
-              child: mainMenueWidget(
-                context,
-                "New Stocktaking Document",
-                const Color.fromARGB(255, 31, 121, 194),
-                const Color.fromARGB(255, 5, 54, 132),
+                  "New Stocktaking Document",
+                  const Color.fromARGB(255, 31, 121, 194),
+                  const Color.fromARGB(255, 5, 54, 132),
+                ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CheckInventory(),
+                    ),
+                  );
+                },
+                child: mainMenueWidget(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const CheckInventory(),
-                  ),
-                );
-              },
-              child: mainMenueWidget(
-                context,
-                "Check Inventory",
-                const Color.fromARGB(255, 189, 65, 34),
-                const Color.fromARGB(255, 141, 51, 2),
-              ),
-            ),  
-          ],
+                  "Check Inventory",
+                  const Color.fromARGB(255, 189, 65, 34),
+                  const Color.fromARGB(255, 141, 51, 2),
+                ),
+              ),  
+            ],
+          ),
         ),
       ),
     );
