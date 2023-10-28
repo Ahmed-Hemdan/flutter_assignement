@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assignement/CheckInventory/View/Components/components.dart';
 import 'package:flutter_assignement/Components/Components.dart';
 
 class CheckInventory extends StatelessWidget {

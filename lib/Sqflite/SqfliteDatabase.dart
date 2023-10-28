@@ -19,8 +19,10 @@ class DatabaseHelper {
 
   static Database? _database;
   Future<Database> get database async {
-    if (_database != null) return _database!;
-    _database = await _initDatabase();
+    if (_database == null) {
+       _database = await _initDatabase();
+       return _database!;
+    }
     return _database!;
   }
 
@@ -31,7 +33,6 @@ class DatabaseHelper {
       path,
       version: _databaseVersion,
       onCreate: _onCreate,
-      onOpen: (db) => print("Database open"),
     );
   }
 
@@ -60,22 +61,22 @@ class DatabaseHelper {
   }
 
   insertData(String sql) async {
-    Database myDatabase = _database!;
+    Database myDatabase = await database;
     return await myDatabase.rawInsert(sql);
   }
 
   upadteData(String sql) async {
-    Database myDatabase = _database!;
+    Database myDatabase = await database;
     return await myDatabase.rawUpdate(sql);
   }
 
   deletetData(String sql) async {
-    Database myDatabase = _database!;
+    Database myDatabase = await database;
     return await myDatabase.rawDelete(sql);
   }
 
   readtData(String sql) async {
-    Database myDatabase = _database!;
+    Database myDatabase = await database;
     return await myDatabase.rawQuery(sql);
   }
 }

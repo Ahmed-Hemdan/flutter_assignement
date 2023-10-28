@@ -1,6 +1,6 @@
 
-abstract class CubitStates {}
+abstract class NewDocStates {}
 
-class CubitInitial extends CubitStates {}
+class CubitInitial extends NewDocStates {}
 
-class CubitInsertItemSuccess extends CubitStates{}
+class CubitInsertItemSuccess extends NewDocStates{}

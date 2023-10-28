@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignement/CheckInventory/CheckInventory.dart';
-import 'package:flutter_assignement/Components/Components.dart';
-import 'package:flutter_assignement/NewDocument/NewDocument.dart';
+import 'package:flutter_assignement/CheckInventory/View/Screen/CheckInventory.dart';
+import 'package:flutter_assignement/MainMenue/View/Components/components.dart';
+import 'package:flutter_assignement/NewDocument/View/Screen/NewDocument.dart';
 
 class MainMenue extends StatelessWidget {
   const MainMenue({super.key});
@@ -20,7 +20,7 @@ class MainMenue extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const NewDocument(),
+                      builder: (context) =>  NewDocument(),
                     ),
                   );
                 },

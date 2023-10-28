@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignement/MainMenue/MainMenue.dart';
+import 'package:flutter_assignement/MainMenue/View/Screen/MainMenue.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const MainMenue(),
+        home:  const MainMenue(),
       ),
     );
   }
