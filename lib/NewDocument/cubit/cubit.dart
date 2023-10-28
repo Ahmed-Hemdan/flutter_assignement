@@ -1,19 +1,22 @@
 
+import 'package:flutter/material.dart';
 import 'package:flutter_assignement/Sqflite/SqfliteDatabase.dart';
 import 'package:flutter_assignement/NewDocument/cubit/states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NewDocCubit extends Cubit<NewDocStates> {
   NewDocCubit() : super(CubitInitial());
+  final TextEditingController barcodeController = TextEditingController();
+  final TextEditingController quantityController = TextEditingController();
 static NewDocCubit get(context) => BlocProvider.of<NewDocCubit>(context);
-
-  void insertItemData(
+ DatabaseHelper myDatabase = DatabaseHelper();
+List<Map> response =[];
+  insertItemData(
     String name,
     String barcode,
     double price,
     int quantity,
   ) async {
-    DatabaseHelper myDatabase = DatabaseHelper();
     await myDatabase.insertData(
         '''
   INSERT INTO items_table (
@@ -23,15 +26,17 @@ static NewDocCubit get(context) => BlocProvider.of<NewDocCubit>(context);
     ${myDatabase.columnPrice}, 
     ${myDatabase.columnQuantity})
   VALUES (
-    'sddsgdfssweffsfs',
+    'sddsgddfsdfdgsfsweffsfs',
     '$name', 
     '$barcode', 
     '$price', 
     '$quantity')
   ''').then((value) async {
-    
-    emit(CubitInsertItemSuccess());
+    barcodeController.clear();
+    quantityController.clear();
+    response = await myDatabase.readtData("SELECT * FROM items_table");
   });
+  emit(CubitInsertItemSuccess());
 
   }
 }
